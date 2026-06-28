@@ -7,15 +7,15 @@ import NavLink from './NavLink'
 const Navbar = () => {
   return (
     <div className='flex justify-between items-center my-8 max-w-10/12 mx-auto'>
-      <div className=''></div>
-      <div>
+      <div className='flex-1'></div>
+      <div className='flex-1 flex justify-center'>
         <ul className='flex gap-10'>
         <li><NavLink href={"/"}>Home</NavLink></li>
         <li><NavLink href={"/about"}>About</NavLink></li>
         <li><NavLink href={"/career"}>Career</NavLink></li>
       </ul>
       </div>
-      <div className='flex justify-center items-center gap-4'>
+      <div className='flex-1 flex justify-end items-center gap-4'>
         <Image src={user} alt='user' width={40} height={40}></Image>
         <Link href="/login"><button className='btn btn-secondary'>Login</button></Link>
       </div>
