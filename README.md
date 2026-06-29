@@ -1,36 +1,119 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 🐉 Dragon News
 
-## Getting Started
+A modern news portal web application built with **Next.js 16** and **React 19**. Dragon News delivers the latest headlines with a clean, category-based layout — featuring breaking-news marquees, social login options, and a fully server-rendered architecture for blazing-fast performance.
 
-First, run the development server:
+> _"Journalism Without Fear or Favour"_
+
+---
+
+## ✨ Features
+
+- **Breaking News Ticker** — A scrolling marquee highlights top stories in real time.
+- **Category Navigation** — Browse news by category (fetched from an external API) with active-state highlighting.
+- **Social Login** — Quick sign-in buttons for Google and GitHub.
+- **Authentication Routes** — Dedicated Login & Register pages via a grouped `(auth)` route.
+- **Server Components** — Data fetching happens on the server for fast initial loads and SEO.
+- **Responsive Layout** — 12-column grid with left sidebar (categories), main content area, and right sidebar (login & extras).
+- **Custom Fonts** — Poppins (body) and Montserrat loaded via `next/font/google`.
+- **Date Display** — Formatted current date in the header using `date-fns`.
+
+---
+
+## 🛠️ Tech Stack
+
+| Layer        | Technology                                           |
+| ------------ | ---------------------------------------------------- |
+| Framework    | [Next.js 16](https://nextjs.org/) (App Router)       |
+| UI Library   | [React 19](https://react.dev/)                       |
+| Styling      | [Tailwind CSS 4](https://tailwindcss.com/) + [DaisyUI 5](https://daisyui.com/) |
+| Icons        | [React Icons](https://react-icons.github.io/react-icons/) |
+| Animations   | [React Fast Marquee](https://www.react-fast-marquee.com/) |
+| Date Utility | [date-fns](https://date-fns.org/)                    |
+| Linting      | ESLint with `eslint-config-next`                     |
+
+---
+
+## 📁 Project Structure
+
+```
+src/
+├── app/
+│   ├── (auth)/            # Auth route group (Login, Register)
+│   │   ├── login/
+│   │   ├── register/
+│   │   └── layout.jsx
+│   ├── (main)/            # Main site route group
+│   │   ├── about/
+│   │   ├── career/
+│   │   ├── news/
+│   │   ├── layout.jsx
+│   │   └── page.jsx       # Homepage
+│   ├── globals.css
+│   ├── layout.js          # Root layout
+│   └── not-found.jsx      # Custom 404 page
+├── assets/                # Static images (logo, user avatar, etc.)
+└── components/
+    ├── homepage/
+    │   └── news/
+    │       ├── LeftSidebar.jsx   # Category list
+    │       └── RightSidebar.jsx  # Social login buttons
+    └── shared/
+        ├── BreakingNews.jsx      # Marquee ticker
+        ├── Header.jsx            # Logo + tagline + date
+        ├── NavLink.jsx           # Active-aware nav link
+        └── Navbar.jsx            # Top navigation bar
+```
+
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- **Node.js** ≥ 18
+- **npm**, **yarn**, **pnpm**, or **bun**
+
+### Installation
+
+```bash
+# Clone the repository
+git clone https://github.com/your-username/dragon-news.git
+cd dragon-news
+
+# Install dependencies
+npm install
+```
+
+### Run Development Server
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+### Build for Production
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build
+npm start
+```
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## 🌐 API Reference
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+News data is fetched from the **Programming Hero Open API**:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+| Endpoint                                                              | Description              |
+| --------------------------------------------------------------------- | ------------------------ |
+| `GET /api/news/categories`                                            | List all news categories |
+| `GET /api/news/category/{category_id}`                                | News by category ID      |
 
-## Deploy on Vercel
+Base URL: `https://openapi.programming-hero.com`
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 📄 License
+
+This project is for educational purposes as part of the [Programming Hero](https://www.programming-hero.com/) web development course.
